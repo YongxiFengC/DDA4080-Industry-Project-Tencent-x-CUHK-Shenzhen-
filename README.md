@@ -1,76 +1,74 @@
-# Tencent Capstone Project
+# Tencent Capstone Project: AI-Assisted Oral History & Memoir Generation
 
-这是一个围绕“AI 辅助口述史与回忆录生成”展开的毕业设计仓库。项目的核心目标，是把老照片、访谈问答和叙事生成串起来，形成一个可以实际演示、可以扩展评测、也可以继续做数据与研究沉淀的完整工作区。
+This repository hosts the capstone project developed in collaboration with **Tencent**, focusing on **AI-Assisted Oral History and Memoir Generation**. The core objective is to integrate old photographs, interview dialogues, and narrative generation into a cohesive workflow. This project serves as a comprehensive workspace for practical demonstration, extensible evaluation, and ongoing data/research accumulation.
 
-当前仓库不是单一应用，而是由主系统、评测设计、模拟流水线和素材文档几个部分组成。
+Rather than a single application, this repository comprises several interconnected components: a main system, evaluation frameworks, simulation pipelines, and archival materials.
 
-## 项目概览
+## Project Overview
 
-这个项目主要解决三个问题：
+This project addresses three primary challenges:
 
-- 如何根据一张老照片自动生成更像“访谈者”而不是“表单机器人”的问题。
-- 如何在多轮问答后，把视觉信息和口述内容整合成一篇更自然、更连贯的故事文本。
-- 如何为这类系统设计可复用的 benchmark、模拟数据和评分方法，便于后续比较不同版本的效果。
+1.  **Interviewer Simulation**: How to automatically generate questions based on old photographs that sound like a human "interviewer" rather than a robotic form filler.
+2.  **Narrative Synthesis**: How to integrate visual information and oral responses after multi-turn dialogues into a natural, coherent story.
+3.  **Evaluation Framework**: How to design reusable benchmarks, simulated data, and scoring methodologies to systematically compare different model versions.
 
-从仓库现状来看，系统已经有三个比较明确的层次：
+The repository is structured into three distinct layers:
+*   **Demonstration Layer**: A photo-story generation system designed for live showcasing.
+*   **Research Layer**: Methodological explorations into follow-up questioning mechanisms, story quality, and evaluation metrics.
+*   **Data Layer**: Organized collections of simulated samples, interview transcripts, memoir drafts, and benchmark documentation.
 
-- 演示层：面向展示的照片故事生成系统。
-- 研究层：围绕追问机制、故事质量和评测指标展开的方法探索。
-- 数据层：围绕模拟样本、访谈稿、回忆录素材和 benchmark 文档进行整理。
+## Core Capabilities
 
-## 核心能力
+The main application, centered around the **"Photo Story"** demo, currently supports:
 
-主应用目前围绕“照片的故事”这个 demo 展开，已经具备以下能力：
+*   **Single-Image Deep Dive**: Visual analysis, interview questioning, and story generation for individual photos.
+*   **Multi-Image Narrative Chain**: Connecting multiple photos into a cross-timeline life narrative.
+*   **Enhanced Follow-up Mechanism**: Dynamically adjusting questioning strategies based on response quality, emotional cues, and information gaps.
+*   **Story Generation**: Synthesizing photo analysis and interview content into first-person or stylized narrative texts.
+*   **Web Demonstration**: A full-stack frontend and backend API for interactive showcasing.
+*   **Text Evaluation**: Dimensionalized scoring capabilities for generated stories.
+*   **Benchmarking & Simulation**: Dedicated directories and documentation for future experiments and benchmarks.
 
-- 单图深挖：针对单张照片做视觉分析、访谈追问和故事生成。
-- 多图叙事链：把多张照片串联成跨时间线的人生叙事。
-- 增强追问机制：根据回答质量、情感信息和信息缺口调整下一轮追问策略。
-- 故事生成：把照片分析和访谈内容整合成第一人称或指定风格的叙事文本。
-- Web 演示：提供前端页面和后端 API，便于现场展示。
-- 文本评分：支持对生成故事做维度化评分。
-- 评测与模拟：为后续 benchmark 和实验留有单独目录与文档。
+**Note on Models**: The default backend is now unified to use **Tencent HunYuan**. Documentation, environment variable examples, and running instructions are configured primarily for HunYuan. Logic for Gemini is retained only for backward compatibility and is no longer the recommended default.
 
-当前默认模型后端已经统一按腾讯混元使用，文档、环境变量示例和运行说明也以混元为主。Gemini 相关逻辑仅保留为兼容备用，不再作为默认推荐方案。
+## Repository Structure
 
-## 仓库结构
+Key directories include:
 
-以下目录是当前最重要的部分：
+*   [`demo/`](demo): The main application directory. Contains CLI entry points, Flask API, frontend code, and core Python modules.
+*   [`benchmark/`](benchmark): Evaluation methodologies, team guides, and reference materials for story generation benchmarks.
+*   [`simulation/`](simulation): Simulated data, configuration files, scripts, and pipeline drafts.
+*   [`image/`](image): Project-related image assets and output resources.
+*   `Memoir_Draft_Interview_Zhiqing.md`: Sample memoir text (Educated Youth).
+*   `Memoir_Draft_Interview_Rural_Teacher.md`: Sample interview and draft material (Rural Teacher).
+*   `Memoir_Draft_Interview_Self_Employed.md`: Sample character story material (Self-Employed).
+*   `Memoir_Interview_Index.md`: Index for the three sample materials.
 
-- [demo](demo): 主应用目录。包含命令行入口、Flask API、前端和核心 Python 模块。
-- [benchmark](benchmark): 评测方法、团队说明、故事生成 benchmark 参考资料。
-- [simulation](simulation): 模拟数据、配置文件、脚本和流水线草稿。
-- [image](image): 项目相关图片素材与输出资源。
-- [回忆录成文与访谈稿_知青篇.md](回忆录成文与访谈稿_知青篇.md): 示例回忆录文本。
-- [回忆录成文与访谈稿_乡村教师篇.md](回忆录成文与访谈稿_乡村教师篇.md): 示例访谈与成文素材。
-- [回忆录成文与访谈稿_个体户篇.md](回忆录成文与访谈稿_个体户篇.md): 示例人物故事素材。
-- [回忆录访谈稿_三份索引.md](回忆录访谈稿_三份索引.md): 三份示例素材的索引。
+> **Tip**: If you only want to run and demonstrate the system, start directly with [`demo/README.md`](demo/README.md).
 
-如果你只是想运行和展示系统，直接从 [demo/README.md](demo/README.md) 开始就够了。
+## Main Application Details
 
-## 主应用说明
+The [`demo/`](demo) directory is the most complete and ready-to-run part of this repository, featuring:
 
-[demo](demo) 是这个仓库当前最完整、最适合直接运行的部分，主要包括：
+*   **CLI Interaction**: Mode selection, image upload, interview flow, and story generation.
+*   **Backend API**: Provides capabilities for analysis, questioning, generation, and scoring.
+*   **Frontend Interface**: For uploading photos, conducting interviews, and displaying results.
+*   **Core Modules**: Image analysis, question generation, context management, story generation, and evaluation agents.
 
-- 命令行交互流程：选择模式、上传图片、完成访谈、生成故事。
-- 后端接口：用于给前端提供分析、追问、生成和评分能力。
-- 前端界面：用于实际演示照片上传、访谈交互和结果展示。
-- 核心模块：图像分析、问题生成、上下文管理、故事生成、评估代理。
+**Key Entry Points**:
+*   [`demo/main.py`](demo/main.py): Main entry for CLI interaction.
+*   [`demo/server.py`](demo/server.py): Flask backend entry point.
+*   [`demo/judge_story.py`](demo/judge_story.py): Entry point for story text evaluation.
+*   [`demo/src/question_generator.py`](demo/src/question_generator.py): Logic for question generation and follow-ups.
+*   [`demo/src/enhanced_followup.py`](demo/src/enhanced_followup.py): Enhanced follow-up strategy module.
 
-相关入口文件包括：
+## Quick Start
 
-- [demo/main.py](demo/main.py): 命令行交互主入口。
-- [demo/server.py](demo/server.py): Flask 后端入口。
-- [demo/judge_story.py](demo/judge_story.py): 故事文本评分入口。
-- [demo/src/question_generator.py](demo/src/question_generator.py): 问题生成与追问逻辑。
-- [demo/src/enhanced_followup.py](demo/src/enhanced_followup.py): 增强追问策略模块。
+There are two common ways to use this project.
 
-## 快速开始
+### 1. Run the Main Application
 
-最常见的使用方式有两种。
-
-### 1. 运行主应用
-
-先看 [demo/README.md](demo/README.md) 的详细说明。常见步骤是：
+Refer to [`demo/README.md`](demo/README.md) for detailed instructions. Common steps:
 
 ```bash
 cd demo
@@ -78,51 +76,49 @@ pip install -r requirements.txt
 python main.py
 ```
 
-运行前请优先在 [demo/.env](demo/.env) 中配置混元相关变量，例如 `HUNYUAN_API_KEY`。如果未配置混元密钥，主流程不会按当前推荐方式工作。
+**Important**: Before running, configure the Tencent HunYuan environment variables in [`demo/.env`](demo/.env), specifically `HUNYUAN_API_KEY`. The main workflow will not function correctly without this key.
 
-如果要跑 Web 演示，则通常是：
+To run the **Web Demo**:
 
 ```bash
+# Terminal 1: Start Backend
 cd demo
 pip install -r requirements.txt
 python server.py
-```
 
-然后另开一个终端启动前端：
-
-```bash
+# Terminal 2: Start Frontend
 cd demo/frontend
 npm install
 npm run dev
 ```
 
-### 2. 查看 benchmark 与研究资料
+### 2. Explore Benchmarks & Research Materials
 
-如果你现在关注的是实验设计、指标定义和研究方向，优先看这些文档：
+If you are interested in experimental design, metric definition, or research directions, prioritize these documents:
 
-- [benchmark/HANNA_BENCHMARK_TEAM_GUIDE.md](benchmark/HANNA_BENCHMARK_TEAM_GUIDE.md)
-- [benchmark/HANNA_BENCHMARK_METRICS_AND_METHODS.md](benchmark/HANNA_BENCHMARK_METRICS_AND_METHODS.md)
-- [benchmark/STORY_GENERATION_BENCHMARK_REFERENCE.md](benchmark/STORY_GENERATION_BENCHMARK_REFERENCE.md)
-- [simulation/README_STEPS.md](simulation/README_STEPS.md)
+*   [`benchmark/HANNA_BENCHMARK_TEAM_GUIDE.md`](benchmark/HANNA_BENCHMARK_TEAM_GUIDE.md)
+*   [`benchmark/HANNA_BENCHMARK_METRICS_AND_METHODS.md`](benchmark/HANNA_BENCHMARK_METRICS_AND_METHODS.md)
+*   [`benchmark/STORY_GENERATION_BENCHMARK_REFERENCE.md`](benchmark/STORY_GENERATION_BENCHMARK_REFERENCE.md)
+*   [`simulation/README_STEPS.md`](simulation/README_STEPS.md)
 
-## 当前仓库状态说明
+## Repository Status Note
 
-这个仓库近期做过一次结构调整：原先位于仓库根目录的应用代码被整理进了 [demo](demo) 目录，所以现在：
+This repository recently underwent a structural refactor. Application code previously located in the root directory has been moved into the [`demo/`](demo) directory. Consequently:
 
-- GitHub 仓库首页 README 位于根目录。
-- 实际运行说明和应用细节位于 [demo/README.md](demo/README.md)。
-- benchmark、simulation 和示例素材作为并列目录保留。
+*   The GitHub repository homepage README is in the **root**.
+*   Actual running instructions and application details are in **[`demo/README.md`](demo/README.md)**.
+*   `benchmark`, `simulation`, and sample materials remain as parallel directories.
 
-如果你看到某些旧 PR 还在引用根目录下的 `main.py`、`config.py`、`src/` 等路径，那通常是因为它们基于旧目录结构创建，不代表当前主分支仍按那种方式组织。
+*Note: If you encounter old Pull Requests referencing `main.py`, `config.py`, or `src/` in the root directory, they are based on the old structure and do not reflect the current main branch organization.*
 
-## 建议阅读顺序
+## Suggested Reading Order
 
-如果你是第一次打开这个仓库，建议按这个顺序看：
+For first-time visitors, the recommended reading order is:
 
-1. [demo/README.md](demo/README.md)
-2. [demo/main.py](demo/main.py)
-3. [demo/src/question_generator.py](demo/src/question_generator.py)
-4. [benchmark/HANNA_BENCHMARK_TEAM_GUIDE.md](benchmark/HANNA_BENCHMARK_TEAM_GUIDE.md)
-5. [simulation/README_STEPS.md](simulation/README_STEPS.md)
+1.  [`demo/README.md`](demo/README.md)
+2.  [`demo/main.py`](demo/main.py)
+3.  [`demo/src/question_generator.py`](demo/src/question_generator.py)
+4.  [`benchmark/HANNA_BENCHMARK_TEAM_GUIDE.md`](benchmark/HANNA_BENCHMARK_TEAM_GUIDE.md)
+5.  [`simulation/README_STEPS.md`](simulation/README_STEPS.md)
 
-这样会比较容易理解这个仓库里“应用演示、追问研究、评测设计、模拟数据”之间的关系。
+This sequence provides the clearest understanding of the relationships between "Application Demo," "Follow-up Research," "Evaluation Design," and "Simulated Data" within this project.
